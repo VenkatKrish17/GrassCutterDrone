@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="background-color: black;">
+<head>
+	<title>Live Streaming</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	
+	<!-- VXG Player -->
+	<script type="text/javascript" src="grass-cutter-v1.min.js"></script>
+	<link href="grass-cutter-v1.min.css" rel="stylesheet"/>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link href="https://www.videoexpertsgroup.com/nacl_player_api/demo.min.css" rel="stylesheet"/>
+	<link href="https://www.videoexpertsgroup.com/nacl_player_api/zenburn.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="content-absolute" style="background-color:  black;">
+		<div class="content">
+			<h1 style="color: #ffffff; border-bottom:  3px solid #e5e4e4; width: 34%;">Grass Cutter Drone<h3 style="color: #ffffff">Front Camera</h3></h1> 
+			<div id="vxg_media_player1" 
+				class="vxgplayer" 
+				url="rtsp://184.72.239.149/vod/mp4:BigBuckBunny_115k.mov" 
+				aspect-ratio latency="3000000" 
+				autostart 
+				controls 
+				avsync>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('Player.src=' + vxgplayer('vxg_media_player1').src());
+			console.log('Player.volume()=' + vxgplayer('vxg_media_player1').volume());
+			console.log('Player.autohide()=' + vxgplayer('vxg_media_player1').autohide());
+			console.log('Player.isMute()=' + vxgplayer('vxg_media_player1').isMute());
+			console.log('Player.isPlaying()=' + vxgplayer('vxg_media_player1').isPlaying());
+			console.log('Player.autoreconnect()=' + vxgplayer('vxg_media_player1').autoreconnect());
+			vxgplayer('vxg_media_player1').onReadyStateChange(function(onreadyState) {
+				console.log("player LOADED: versionPLG=" + vxgplayer('vxg_media_player1').versionPLG() + " versionAPP=" + vxgplayer('vxg_media_player1').versionAPP());
+				vxgplayer('vxg_media_player1').play();
+			});
+			vxgplayer('vxg_media_player1').onError(function(onErr) {
+				console.log("player ERROR: " + vxgplayer('vxg_media_player1').error() + " decoder:"+vxgplayer('vxg_media_player1').errorDecoder());
+			});
+		})
+	</script>
+</body>
+</html>
