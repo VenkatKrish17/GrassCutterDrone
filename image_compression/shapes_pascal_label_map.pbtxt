@@ -1,0 +1,15 @@
+item {
+  name: "triangle"
+  id: 1
+  display_name: "shape_detected"
+}
+item {
+  name: "cross"
+  id: 2
+  display_name: "cross"
+}
+item {
+  name: "plus"
+  id: 3
+  display_name: "plus"
+}
