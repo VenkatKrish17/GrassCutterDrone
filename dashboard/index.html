@@ -12,6 +12,8 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link href="https://www.videoexpertsgroup.com/nacl_player_api/demo.min.css" rel="stylesheet"/>
 	<link href="https://www.videoexpertsgroup.com/nacl_player_api/zenburn.min.css" rel="stylesheet">
+
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 </head>
 <body>
 	<div class="content-absolute" style="background-color:  black;">
@@ -43,6 +45,24 @@
 				console.log("player ERROR: " + vxgplayer('vxg_media_player1').error() + " decoder:"+vxgplayer('vxg_media_player1').errorDecoder());
 			});
 		})
+	</script>
+
+	<!-- Socket IO -->
+	<script>
+		let socket = io('http://localhost:8089'); 
+
+		socket.on('connect', () => {
+			console.log('Connected to the server.');
+		});
+
+		socket.on('disconnect', () => {
+			console.log('Disconnected from the server.');
+		});
+
+		socket.on('videoStream', (message) => {
+			console.log(message);
+		});
+
 	</script>
 </body>
 </html>

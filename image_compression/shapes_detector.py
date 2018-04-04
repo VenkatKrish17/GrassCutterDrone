@@ -85,7 +85,7 @@ with detection_graph.as_default():
                         print("after pickling..." + str(sys.getsizeof(data)))
                         print("sending..")
                         clientsocket.send((str(len(data)).ljust(16)).encode('utf-8','ignore'))
-                        clientsocket.send(data)
+                        clientsocket.emit("videoStream", data)
                         if cv2.waitKey(25) & 0xFF==ord('q'):
                            break
                 cv2.destroyAllWindows()
