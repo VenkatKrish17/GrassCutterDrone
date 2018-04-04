@@ -1,0 +1,5 @@
+For shapes_detector.py:
+python .\shapes_detector.py frozen_inference_graph.pb shapes_pascal_label_map.pbtxt 0
+
+For shapes_server.py
+python shapes_server.py
